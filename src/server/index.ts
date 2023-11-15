@@ -7,6 +7,6 @@ import itemsRouter from "../features/items/router/itemsRouter.js";
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use("/items", itemsRouter);
-app.use("/", pingRouter);
+app.all("/items", itemsRouter);
+app.all("/", pingRouter);
 app.use(notFound);
