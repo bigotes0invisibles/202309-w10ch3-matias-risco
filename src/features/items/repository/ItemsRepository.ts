@@ -1,4 +1,4 @@
-import itemsModel from "../model/schema.js";
+import itemsModel from "../model/itemsModel.js";
 
 class ItemsRepository {
   public async getItems() {
