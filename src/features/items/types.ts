@@ -1,11 +1,12 @@
-export interface ItemsStructure {
-  id: number;
+export interface ItemStructure {
+  _id: string;
   name: string;
   size: string;
   color: string;
   price: string;
 }
 
-export interface ItemsDatabaseStructure extends ItemsStructure {
-  _id?: string;
+export interface ItemsRepositoryStructure {
+  getItems: () => Promise<ItemStructure[]>;
+  getItemsById: (_id: string) => Promise<ItemStructure>;
 }

@@ -1,15 +1,20 @@
-import { getItemsModel } from "../../../database/schema.js";
+import itemsModel from "../model/schema.js";
 
 class ItemsRepository {
-  private readonly itemsMongose;
-  constructor() {
-    this.itemsMongose = getItemsModel();
+  public async getItems() {
+    const items = await itemsModel.find();
+
+    return items;
   }
 
-  public getItemsDatabase = async () => {
-    const items = await this.itemsMongose.find();
+  public async getItemsById(id: string) {
+    const items = await itemsModel.findById(id);
+    if (!items) {
+      throw new Error();
+    }
+
     return items;
-  };
+  }
 }
 
 export default ItemsRepository;
