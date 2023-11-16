@@ -1,4 +1,4 @@
-import type { ItemBaseStructure, ItemMongoose, ItemStructure } from "../types";
+import type { ItemBaseStructure, ItemStructure } from "../types";
 
 export interface ItemsRepositoryStructure {
   getItems: () => Promise<ItemStructure[]>;

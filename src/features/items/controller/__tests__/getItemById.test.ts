@@ -1,11 +1,8 @@
-import type { Request, Response } from "express";
+import type { Response } from "express";
 import type { ItemsRepositoryStructure } from "../../repository/types";
 import itemsMock from "../../mocks/ItemsMockData";
 import ItemsController, { type RequestById } from "../ItemsController";
-import {
-  itemMongoosetoItem,
-  itemtoItemMongoose,
-} from "../../utils/itemsFunctions";
+import { itemMongoosetoItem } from "../../utils/itemsFunctions";
 import { findItem } from "../../utils/itemsTest";
 
 describe("Given the function getItemsById in ItemsController", () => {
