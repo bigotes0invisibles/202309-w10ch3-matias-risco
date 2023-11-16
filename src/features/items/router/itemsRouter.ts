@@ -6,6 +6,8 @@ const itemsRepository = new ItemsRepository();
 const itemsController = new ItemsController(itemsRepository);
 const itemsRouter = Router();
 
-itemsRouter.get("/items", itemsController.getItems);
+itemsRouter.get("/", itemsController.getItems);
+itemsRouter.get("/:idItem", itemsController.getItemById);
+itemsRouter.post("/", itemsController.addItem);
 
 export default itemsRouter;

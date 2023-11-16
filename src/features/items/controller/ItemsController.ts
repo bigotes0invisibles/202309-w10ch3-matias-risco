@@ -1,12 +1,9 @@
 import type { Request, Response } from "express";
-import type {
-  ItemBaseStructure,
-  ItemStructure,
-  ItemsRepositoryStructure,
-} from "../types";
+import type { ItemStructure } from "../types";
+import type { ItemsRepositoryStructure } from "../repository/types";
 
 interface DictionaryParamItem {
-  idThing: string;
+  idItem: string;
 }
 
 type RequestById = Request<DictionaryParamItem>;
@@ -25,9 +22,27 @@ class ItemsController {
   };
 
   addItem = async (req: RequestByBody, res: Response) => {
-    const { id, ...item } = req.body;
-    const newitem = await this.itemsRepository.createItem(item);
-    res.status(200).json({ newitem });
+    try {
+      const { id: _id, ...item } = req.body;
+      const newitem = await this.itemsRepository.createItem(item);
+      res.status(201).json({ newitem });
+    } catch {
+      res.status(500).json({
+        error: "Error no se podido crear item",
+      });
+    }
+  };
+
+  getItemById = async (req: RequestById, res: Response) => {
+    try {
+      const { idItem } = req.params;
+      const item = await this.itemsRepository.getItemsById(idItem);
+      res.status(200).json({ item });
+    } catch {
+      res.status(404).json({
+        error: "Error no se ha encontrado item",
+      });
+    }
   };
 }
 
