@@ -1,12 +1,13 @@
 import type { Request, Response } from "express";
-import ItemsRepository from "../repository/ItemsRepository.js";
+import type { ItemsRepositoryStructure } from "../types";
 
-const itemsRepository = new ItemsRepository();
 class ItemsController {
-  public async getThings(_req: Request, res: Response) {
-    const items = itemsRepository.getItemsDatabase();
+  constructor(private readonly itemsRepository: ItemsRepositoryStructure) {}
+
+  getThings = async (_req: Request, res: Response) => {
+    const items = await this.itemsRepository.getItems();
     res.status(200).json({ items });
-  }
+  };
 }
 
 export default ItemsController;
