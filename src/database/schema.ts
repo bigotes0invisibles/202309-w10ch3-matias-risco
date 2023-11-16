@@ -8,5 +8,7 @@ export const itemsDatabase = {
   price: String,
 };
 
-const itemsSchema = new mongoose.Schema(itemsDatabase);
-export const itemsMongose = mongoose.model("item", itemsSchema);
+export const getItemsModel = () => {
+  const itemsSchema = new mongoose.Schema(itemsDatabase);
+  return mongoose.model("items", itemsSchema);
+};
