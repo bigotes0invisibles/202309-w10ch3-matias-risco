@@ -1,7 +1,7 @@
-import type { ItemBaseStructure, ItemMongoose, ItemStructure } from "../types";
+import type { ItemBaseStructure, ItemStructure } from "../types";
 
 export interface ItemsRepositoryStructure {
-  getItems: () => Promise<ItemMongoose[]>;
-  getItemsById: (_id: string) => Promise<ItemMongoose>;
+  getItems: () => Promise<ItemStructure[]>;
+  getItemsById: (_id: string) => Promise<ItemStructure>;
   createItem: (item: ItemBaseStructure) => Promise<ItemStructure>;
 }

@@ -7,3 +7,11 @@ export const itemMongoosetoItem = ({
   id,
   ...itemData,
 });
+
+export const itemtoItemMongoose = ({
+  id: _id,
+  ...itemData
+}: ItemStructure): ItemMongoose => ({
+  _id,
+  ...itemData,
+});
