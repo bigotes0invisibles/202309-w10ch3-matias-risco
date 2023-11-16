@@ -6,9 +6,9 @@ interface DictionaryParamItem {
   idItem: string;
 }
 
-type RequestById = Request<DictionaryParamItem>;
+export type RequestById = Request<DictionaryParamItem>;
 
-type RequestByBody = Request<
+export type RequestByBody = Request<
   Record<string, unknown>,
   Record<string, unknown>,
   ItemStructure
