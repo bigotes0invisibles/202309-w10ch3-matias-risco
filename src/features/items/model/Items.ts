@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import type { ItemStructure } from "../types";
+import type { ItemMongoose } from "../types";
 
-const itemsSchema = new mongoose.Schema<ItemStructure>({
+const itemsSchema = new mongoose.Schema<ItemMongoose>({
   name: {
     type: String,
     required: true,
