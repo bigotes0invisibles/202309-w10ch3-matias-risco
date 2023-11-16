@@ -1,12 +1,14 @@
-export interface ItemStructure {
-  _id: string;
+export interface ItemBaseStructure {
   name: string;
   size: string;
   color: string;
   price: string;
 }
 
-export interface ItemsRepositoryStructure {
-  getItems: () => Promise<ItemStructure[]>;
-  getItemsById: (_id: string) => Promise<ItemStructure>;
+export interface ItemMongoose extends ItemBaseStructure {
+  _id: string;
+}
+
+export interface ItemStructure extends ItemBaseStructure {
+  id: string;
 }
