@@ -13,6 +13,7 @@ export type RequestByBody = Request<
   Record<string, unknown>,
   ItemStructure
 >;
+
 class ItemsController {
   constructor(private readonly itemsRepository: ItemsRepositoryStructure) {}
 
