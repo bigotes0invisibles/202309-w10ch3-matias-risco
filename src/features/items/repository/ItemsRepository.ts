@@ -1,19 +1,20 @@
-import itemsModel from "../model/itemsModel.js";
+import chalk from "chalk";
+import Items from "../model/Items";
 
 class ItemsRepository {
   public async getItems() {
-    const items = await itemsModel.find();
+    const items = await Items.find();
 
     return items;
   }
 
   public async getItemsById(id: string) {
-    const items = await itemsModel.findById(id);
-    if (!items) {
-      throw new Error();
+    const item = await Items.findById(id);
+    if (!item) {
+      throw new Error(chalk.red("Error:item not found"));
     }
 
-    return items;
+    return item;
   }
 }
 

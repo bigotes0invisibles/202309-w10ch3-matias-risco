@@ -19,6 +19,5 @@ const itemsSchema = new mongoose.Schema<ItemStructure>({
     required: true,
   },
 });
-const itemsModel = mongoose.model("Items", itemsSchema, "items");
 
-export default itemsModel;
+export default mongoose.model("Items", itemsSchema, "items");
